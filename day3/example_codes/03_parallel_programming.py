@@ -16,12 +16,11 @@ def worker(barrier, thread_id):
 
 
 def main():
+    thread_numbers = 3
     # 배리어 생성 (3개의 스레드가 도달할 때까지 대기)
-    barrier = threading.Barrier(3)
+    barrier = threading.Barrier(thread_numbers)
 
     # 스레드 생성 및 시작
-
-    thread_numbers = 3
     threads = []
     for i in range(thread_numbers):
         new_thread = threading.Thread(target=worker, args=(barrier, i))
