@@ -30,35 +30,3 @@ try:
 finally:
     # WebDriver 종료
     driver.quit()
-
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-import os
-
-# ChromeDriver 경로 설정
-current_directory = os.path.dirname(os.path.abspath(__file__))
-
-# Set up Chrome options
-chrome_options = Options()
-chrome_options.binary_location = chrome_binary_path
-
-# Specify the path to the ChromeDriver executable
-chrome_driver_path = f"{current_directory}\chromedriver.exe"
-
-# Set up the ChromeDriver service
-service = Service(chrome_driver_path)
-
-# Create a WebDriver instance with the specified options
-driver = webdriver.Chrome(service=service, options=chrome_options)
-
-try:
-    # Navigate to a web page
-    driver.get("https://www.google.com")
-
-    # Print the page title
-    print("Page title is:", driver.title)
-
-finally:
-    # Quit the WebDriver
-    driver.quit()
