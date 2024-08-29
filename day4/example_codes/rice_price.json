@@ -1,0 +1,84 @@
+{
+    "result": [
+        {
+            "date": "23-01",
+            "minPrice": 16660
+        },
+        {
+            "date": "23-02",
+            "minPrice": 15600
+        },
+        {
+            "date": "23-03",
+            "minPrice": 13950
+        },
+        {
+            "date": "23-04",
+            "minPrice": 19960
+        },
+        {
+            "date": "23-05",
+            "minPrice": 14370
+        },
+        {
+            "date": "23-06",
+            "minPrice": 19640
+        },
+        {
+            "date": "23-07",
+            "minPrice": 18780
+        },
+        {
+            "date": "23-08",
+            "minPrice": 19950
+        },
+        {
+            "date": "23-09",
+            "minPrice": 14890
+        },
+        {
+            "date": "23-10",
+            "minPrice": 20130
+        },
+        {
+            "date": "23-11",
+            "minPrice": 19000
+        },
+        {
+            "date": "23-12",
+            "minPrice": 15830
+        },
+        {
+            "date": "24-01",
+            "minPrice": 20090
+        },
+        {
+            "date": "24-02",
+            "minPrice": 13730
+        },
+        {
+            "date": "24-03",
+            "minPrice": 13800
+        },
+        {
+            "date": "24-04",
+            "minPrice": 12900
+        },
+        {
+            "date": "24-05",
+            "minPrice": 12700
+        },
+        {
+            "date": "24-06",
+            "minPrice": 11800
+        },
+        {
+            "date": "24-07",
+            "minPrice": 11800
+        },
+        {
+            "date": "24-08",
+            "minPrice": 19000
+        }
+    ]
+}
