@@ -1,0 +1,3 @@
+*.exe
+day4/example_codes/chrome-win64
+day4/example_codes/chrome-headless-shell-win64
