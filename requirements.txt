@@ -1,0 +1,9 @@
+gym
+pygame
+numpy
+networkx
+matplotlib
+scikit-learn
+scipy
+pyqlearning
+-e ./dynamic_gridworld
