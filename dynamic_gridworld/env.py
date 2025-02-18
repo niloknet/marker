@@ -273,7 +273,118 @@ class DynamicGridWorldEnv(gym.Env):
                     pygame.draw.line(self.screen, (0, 0, 0), start_pos, end_pos, width=5)
 
         pygame.display.flip()
+
+    def get_adjacency_matrix(self):
+        """
+        현재 환경의 벽 상태를 고려하여 인접 행렬을 반환합니다.
+        Returns:
+            numpy.ndarray: size*size x size*size 크기의 인접 행렬
+        """
+        n = self.size * self.size
+        adj_matrix = np.zeros((n, n), dtype=int)
         
+        for x in range(self.size):
+            for y in range(self.size):
+                current = x * self.size + y
+                # 현재 위치 임시 저장
+                temp_pos = self.agent_pos.copy()
+                self.agent_pos = np.array([x, y])
+                
+                # 상하좌우 이동 가능 여부 확인
+                if x > 0 and not self.sense_up_wall():
+                    adj_matrix[current][(x-1)*self.size + y] = 1
+                
+                if x < self.size-1 and not self.sense_down_wall():
+                    adj_matrix[current][(x+1)*self.size + y] = 1
+                
+                if y > 0 and not self.sense_left_wall():
+                    adj_matrix[current][x*self.size + (y-1)] = 1
+                
+                if y < self.size-1 and not self.sense_right_wall():
+                    adj_matrix[current][x*self.size + (y+1)] = 1
+                
+                # 원래 위치로 복원
+                self.agent_pos = temp_pos
+                
+        return adj_matrix
+
+    def get_adjacency_list(self):
+        """
+        현재 환경의 벽 상태를 고려하여 좌표 튜플의 양방향 인접 리스트 그래프를 반환합니다.
+        Returns:
+            dict: {(x,y): [(nx1,ny1), (nx2,ny2), ...]} 형태의 인접 리스트
+        """
+        adj_list = {}
+        
+        # 모든 셀에 대해 순회
+        for x in range(self.size):
+            for y in range(self.size):
+                adj_list[(x,y)] = []
+                
+                # 현재 위치 임시 저장
+                temp_pos = self.agent_pos.copy()
+                self.agent_pos = np.array([x, y])
+                
+                # 상하좌우 이동 가능 여부 확인
+                # 위쪽 확인
+                if x > 0 and not self.sense_up_wall():
+                    adj_list[(x,y)].append((x-1, y))
+                
+                # 아래쪽 확인
+                if x < self.size-1 and not self.sense_down_wall():
+                    adj_list[(x,y)].append((x+1, y))
+                
+                # 왼쪽 확인
+                if y > 0 and not self.sense_left_wall():
+                    adj_list[(x,y)].append((x, y-1))
+                
+                # 오른쪽 확인
+                if y < self.size-1 and not self.sense_right_wall():
+                    adj_list[(x,y)].append((x, y+1))
+                
+                # 원래 위치로 복원
+                self.agent_pos = temp_pos
+                
+        return adj_list
+    
+    def follow_path(self, path):
+        """
+        주어진 경로를 따라 로봇을 이동시킵니다.
+        
+        Args:
+            path: 좌표 튜플들의 리스트 [(x1,y1), (x2,y2), ...]
+        """
+        if not path:
+            print("유효한 경로가 없습니다.")
+            return
+        
+        print("\n경로 따라 이동 시작:")
+        for i in range(len(path)-1):
+            current = path[i]
+            next_pos = path[i+1]
+            
+            # 이동 방향 결정
+            dx = next_pos[0] - current[0]
+            dy = next_pos[1] - current[1]
+            self.place()
+
+            # 해당 방향으로 이동
+            if dx == -1:
+                print(f"{current} -> 위로 이동")
+                self.move_up()
+            elif dx == 1:
+                print(f"{current} -> 아래로 이동")
+                self.move_down()
+            elif dy == -1:
+                print(f"{current} -> 왼쪽으로 이동")
+                self.move_left()
+            elif dy == 1:
+                print(f"{current} -> 오른쪽으로 이동")
+                self.move_right()
+                
+        self.place()
+        print(f"목표 지점 도달: {path[-1]}")
+
     def load_broken_bridge(self):
         """깨진 다리 패턴을 로드하고 에이전트를 시작 위치로 설정합니다."""
         # 박스 패턴 정의
