@@ -6,4 +6,6 @@ matplotlib
 scikit-learn
 scipy
 pyqlearning
+psutil
+tabulate
 -e ./dynamic_gridworld
