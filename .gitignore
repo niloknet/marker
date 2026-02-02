@@ -1,3 +1,6 @@
 .*
 __pycache__
 dynamic_gridworld/dynamic_gridworld.egg-info
+venv/
+trash_can/
+*.gif
