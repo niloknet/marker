@@ -26,6 +26,24 @@
 
 ---
 
+## 📅 2일차: MDP와 파라미터 튜닝
+
+### 2일차 파일 구성
+| 파일 | 설명 |
+|------|------|
+| `day2/01_grid_world_overlay.py` | 나만의 그리드 월드 (클릭 편집, 할인율 γ 슬라이더, Value Iteration 가치 히트맵) — `streamlit run day2/01_grid_world_overlay.py` |
+| `day2/02_frozenlake_intro.ipynb` | FrozenLake-v1 환경 소개 (상태·행동·보상, 맵 시각화) |
+| `day2/03_frozenlake_manual.py` | FrozenLake 버튼 조종 (is_slippery=False, 결정적 이동) — `streamlit run day2/03_frozenlake_manual.py` |
+| `day2/04_frozenlake_manual_slippy.py` | FrozenLake 버튼 조종 (is_slippery=True, 미끄러짐) — `streamlit run day2/04_frozenlake_manual_slippy.py` |
+| `day2/05_env_P_analysis.ipynb` | FrozenLake env.P (전이 확률) 분석 노트북 |
+| `day2/06_hill_climbing_cartpole.py` | 힐 클라이밍 CartPole (선형 정책 + 무작위 섭동) — `python day2/06_hill_climbing_cartpole.py [--render_mode all\|play\|none]` |
+| `day2/07_hill_climbing_mountaincar.py` | 힐 클라이밍 MountainCar Continuous (선형 정책, 보상 shaping) — `python day2/07_hill_climbing_mountaincar.py [--render_mode all\|play\|none]` |
+| `day2/08_colab_gradio_cartpole.ipynb` | **Colab 전용** CartPole 힐 클라이밍 (Gradio UI) |
+| `day2/09_colab_gradio_mountaincar.ipynb` | **Colab 전용** MountainCar Continuous 힐 클라이밍 (Gradio UI) |
+| `day2/render_helpers.py` | 06·07 로컬 렌더용 헬퍼 (Pygame 창, 오버레이) |
+
+---
+
 ## 🗓 전체 로드맵
 
 | 일차 | 주제 |
