@@ -44,6 +44,24 @@
 
 ---
 
+## 📅 3일차: Q-러닝과 Taxi-v3 정복
+
+### 3일차 파일 구성
+| 파일 | 설명 |
+|------|------|
+| `day3/01_frozenlake_qlearning_pygame.py` | FrozenLake 4x4 Q-러닝 학습 후 Pygame 시각화 (맵 + 정보 패널). `python day3/01_frozenlake_qlearning_pygame.py [--render_mode all\|play\|none] [--slippery]` |
+| `day3/02_taxi_qlearning_pygame.py` | Taxi-v3 Q-러닝 학습 후 Pygame 시각화 (맵 + 정보 패널). `python day3/02_taxi_qlearning_pygame.py [--render_mode all\|play\|none]` |
+| `day3/03_qlearning_dashboard.py` | Q-러닝 대시보드 (학습 곡선, Q-테이블 히트맵). FrozenLake-v1 / Taxi-v3 선택. `streamlit run day3/03_qlearning_dashboard.py` |
+| `day3/04_qtable_heatmap.ipynb` | Q-테이블 히트맵 시각화 및 학습 결과 확인 (Gradio, Colab 활용). FrozenLake 4x4, 최적 경로·영역 표시 |
+| `day3/06_cliffwalking_qlearning_pygame.py` | CliffWalking-v1 Q-러닝 학습 후 Pygame 시각화. `python day3/06_cliffwalking_qlearning_pygame.py [--render_mode all\|play\|none]` |
+| `day3/07_cliffwalking_sarsa_pygame.py` | CliffWalking-v1 SARSA 학습 후 Pygame 시각화 (on-policy, Q-러닝과 비교용). `python day3/07_cliffwalking_sarsa_pygame.py [--render_mode all\|play\|none]` |
+| `day3/08_mountaincar_continuous_compare.py` | MountainCarContinuous: 이산화 Q-러닝 vs PPO 리워드 비교. ShapedReward, PPO 모델 로드/저장, MP4는 `day3/renders/`에 저장. `python day3/08_mountaincar_continuous_compare.py [--render_mode all\|play\|none]` |
+
+
+※ 01·02·06·07·08(compare)은 `day2/render_helpers.py`를 사용합니다. Pygame 창에서 학습/재생을 보려면 `--render_mode all` 또는 `play`를 지정하세요.
+
+---
+
 ## 🗓 전체 로드맵
 
 | 일차 | 주제 |

@@ -4,3 +4,5 @@ dynamic_gridworld/dynamic_gridworld.egg-info
 venv/
 trash_can/
 *.gif
+day3/models/
+day3/renders/
