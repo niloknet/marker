@@ -62,6 +62,25 @@
 
 ---
 
+## 📅 4일차: DQN과 LunarLander
+
+### 4일차 파일 구성
+| 파일 | 설명 |
+|------|------|
+| `day4/01_iris_visualization.html` | 신경망 시각화 (Iris, 슬라이더로 가중치 조절) — 브라우저에서 HTML 열기 |
+| `day4/02_cartpole_compare.py` | CartPole 비교: 이산화 Q-Learning vs Vanilla DQN vs Stable DQN. 학습 곡선 비교. `day4/models/`에 모델 캐시. `python day4/02_cartpole_compare.py [--total_timesteps 100000] [--seed 0] [--force_train]` |
+| `day4/03_dqn_lunarlander_colab.ipynb` | **Colab 전용** DQN으로 LunarLander-v3 학습 (Gradio 하이퍼파라미터, RecordVideo, GPU 지원) |
+| `day4/04_policy_kwargs_dqn.py` | DQN 뇌 구조 비교: MlpPolicy + `policy_kwargs` net_arch ([64,64] / 기본 / [256,256,128]). `python day4/04_policy_kwargs_dqn.py [--total_timesteps 50000] [--seed 0] [--out 07_policy_kwargs_compare.png]` |
+| `day4/05_dqn_param_effect.py` | DQN 핵심 파라미터 효과: buffer_size, train_freq, target_update_interval (기본 / 공격적 / 보수적). `python day4/05_dqn_param_effect.py [--total_timesteps 50000] [--seed 0] [--out 08_dqn_param_effect.png]` |
+| `day4/06_callback_reward_loss_gradio.ipynb` | **Colab 전용** CartPole DQN + Callback으로 보상·Loss 수집, Gradio 학습 곡선 및 Q-value·정책 히트맵 |
+| `day4/07_reinforce_gradio_mountaincar.ipynb` | **Colab 전용** MountainCarContinuous REINFORCE (가우시안 정책, 보상 shaping), Gradio UI |
+| `day4/08_onpolicy_compare.py` | LunarLander-v3 온폴리시 비교: REINFORCE(PyTorch) vs A2C vs PPO. `day4/models/` 캐시. `python day4/08_onpolicy_compare.py [--total_timesteps 200000] [--seed 0] [--force_train]` |
+| `day4/device_utils.py` | SB3/PyTorch용 디바이스 선택 (CUDA → MPS → CPU). 02·04·05·08에서 사용 |
+
+※ 02·08은 `day4/models/`에 모델이 있으면 로드, 없으면 학습 후 저장합니다. 비교 그래프는 `day4/renders/` 등에 PNG로 저장됩니다.
+
+---
+
 ## 🗓 전체 로드맵
 
 | 일차 | 주제 |
