@@ -17,7 +17,7 @@
 ### 1일차 파일 구성
 | 파일 | 설명 |
 |------|------|
-| `day1/01_ml_paradigms.py` | 지도/비지도학습과 강화학습 비교 (scikit-learn 예제) |
+| `day1/01_ml_paradigms.py` | 지도 학습과 비지도 학습 비교 (scikit-learn 예제) |
 | `day1/02_cartpole_demo.ipynb` | Gymnasium CartPole 환경 기초 실습 |
 | `day1/03_cartpole_streamlit.py` | CartPole Streamlit 앱 (`streamlit run day1/03_cartpole_streamlit.py`) |
 | `day1/04_cartpole_streamlit_colab.ipynb` | **Colab 전용** Gymnasium + Streamlit 실습 (TODO: `take_step` 등 직접 구현) |
@@ -31,16 +31,16 @@
 ### 2일차 파일 구성
 | 파일 | 설명 |
 |------|------|
-| `day2/01_grid_world_overlay.py` | 나만의 그리드 월드 (클릭 편집, 할인율 γ 슬라이더, Value Iteration 가치 히트맵) — `streamlit run day2/01_grid_world_overlay.py` |
+| `day2/01_grid_world_overlay.py` | 나만의 그리드 월드 (클릭 편집 R/T/G/F/S, 할인율 γ 슬라이더, Value Iteration 가치 히트맵) — `streamlit run day2/01_grid_world_overlay.py` |
 | `day2/02_frozenlake_intro.ipynb` | FrozenLake-v1 환경 소개 (상태·행동·보상, 맵 시각화) |
 | `day2/03_frozenlake_manual.py` | FrozenLake 버튼 조종 (is_slippery=False, 결정적 이동) — `streamlit run day2/03_frozenlake_manual.py` |
 | `day2/04_frozenlake_manual_slippy.py` | FrozenLake 버튼 조종 (is_slippery=True, 미끄러짐) — `streamlit run day2/04_frozenlake_manual_slippy.py` |
 | `day2/05_env_P_analysis.ipynb` | FrozenLake env.P (전이 확률) 분석 노트북 |
 | `day2/06_hill_climbing_cartpole.py` | 힐 클라이밍 CartPole (선형 정책 + 무작위 섭동) — `python day2/06_hill_climbing_cartpole.py [--render_mode all\|play\|none]` |
-| `day2/07_hill_climbing_mountaincar.py` | 힐 클라이밍 MountainCar Continuous (선형 정책, 보상 shaping) — `python day2/07_hill_climbing_mountaincar.py [--render_mode all\|play\|none]` |
+| `day2/07_hill_climbing_mountaincar.py` | 힐 클라이밍 MountainCarContinuous (선형 정책, 보상 shaping) — `python day2/07_hill_climbing_mountaincar.py [--render_mode all\|play\|none]` |
 | `day2/08_colab_gradio_cartpole.ipynb` | **Colab 전용** CartPole 힐 클라이밍 (Gradio UI) |
-| `day2/09_colab_gradio_mountaincar.ipynb` | **Colab 전용** MountainCar Continuous 힐 클라이밍 (Gradio UI) |
-| `day2/render_helpers.py` | 06·07 로컬 렌더용 헬퍼 (Pygame 창, 오버레이) |
+| `day2/09_colab_gradio_mountaincar.ipynb` | **Colab 전용** MountainCarContinuous 힐 클라이밍 (Gradio UI) |
+| `day2/render_helpers.py` | 06·07 로컬 렌더용 헬퍼 (Pygame 창, 보상 오버레이) |
 
 ---
 
@@ -52,13 +52,13 @@
 | `day3/01_frozenlake_qlearning_pygame.py` | FrozenLake 4x4 Q-러닝 학습 후 Pygame 시각화 (맵 + 정보 패널). `python day3/01_frozenlake_qlearning_pygame.py [--render_mode all\|play\|none] [--slippery]` |
 | `day3/02_taxi_qlearning_pygame.py` | Taxi-v3 Q-러닝 학습 후 Pygame 시각화 (맵 + 정보 패널). `python day3/02_taxi_qlearning_pygame.py [--render_mode all\|play\|none]` |
 | `day3/03_qlearning_dashboard.py` | Q-러닝 대시보드 (학습 곡선, Q-테이블 히트맵). FrozenLake-v1 / Taxi-v3 선택. `streamlit run day3/03_qlearning_dashboard.py` |
-| `day3/04_qtable_heatmap.ipynb` | Q-테이블 히트맵 시각화 및 학습 결과 확인 (Gradio, Colab 활용). FrozenLake 4x4, 최적 경로·영역 표시 |
-| `day3/06_cliffwalking_qlearning_pygame.py` | CliffWalking-v1 Q-러닝 학습 후 Pygame 시각화. `python day3/06_cliffwalking_qlearning_pygame.py [--render_mode all\|play\|none]` |
+| `day3/04_qtable_heatmap.ipynb` | Q-테이블 히트맵 시각화 및 학습 결과 확인 (Gradio, Colab 활용). FrozenLake 4x4, 최적 경로·영역 표시, 하이퍼파라미터 가이드 |
+| `day3/06_cliffwalking_qlearning_pygame.py` | CliffWalking-v1 Q-러닝 학습 후 Pygame 시각화 (맵 + 정보 패널). `python day3/06_cliffwalking_qlearning_pygame.py [--render_mode all\|play\|none]` |
 | `day3/07_cliffwalking_sarsa_pygame.py` | CliffWalking-v1 SARSA 학습 후 Pygame 시각화 (on-policy, Q-러닝과 비교용). `python day3/07_cliffwalking_sarsa_pygame.py [--render_mode all\|play\|none]` |
-| `day3/08_mountaincar_continuous_compare.py` | MountainCarContinuous: 이산화 Q-러닝 vs PPO 리워드 비교. ShapedReward, PPO 모델 로드/저장, MP4는 `day3/renders/`에 저장. `python day3/08_mountaincar_continuous_compare.py [--render_mode all\|play\|none]` |
+| `day3/08_mountaincar_continuous_compare.py` | MountainCarContinuous-v0: 이산화 Q-러닝 vs PPO 리워드 비교. ShapedReward, PPO 모델 `day3/models/` 캐시, MP4 `day3/renders/` 저장. `python day3/08_mountaincar_continuous_compare.py [--render_mode all\|play\|none]` |
 
 
-※ 01·02·06·07·08(compare)은 `day2/render_helpers.py`를 사용합니다. Pygame 창에서 학습/재생을 보려면 `--render_mode all` 또는 `play`를 지정하세요.
+※ 01·02·06·07·08은 `day2/render_helpers.py`를 사용합니다. Pygame 창에서 학습/재생을 보려면 `--render_mode all` 또는 `play`를 지정하세요.
 
 ---
 
@@ -67,17 +67,30 @@
 ### 4일차 파일 구성
 | 파일 | 설명 |
 |------|------|
-| `day4/01_iris_visualization.html` | 신경망 시각화 (Iris, 슬라이더로 가중치 조절) — 브라우저에서 HTML 열기 |
-| `day4/02_cartpole_compare.py` | CartPole 비교: 이산화 Q-Learning vs Vanilla DQN vs Stable DQN. 학습 곡선 비교. `day4/models/`에 모델 캐시. `python day4/02_cartpole_compare.py [--total_timesteps 100000] [--seed 0] [--force_train]` |
-| `day4/03_dqn_lunarlander_colab.ipynb` | **Colab 전용** DQN으로 LunarLander-v3 학습 (Gradio 하이퍼파라미터, RecordVideo, GPU 지원) |
-| `day4/04_policy_kwargs_dqn.py` | DQN 뇌 구조 비교: MlpPolicy + `policy_kwargs` net_arch ([64,64] / 기본 / [256,256,128]). `python day4/04_policy_kwargs_dqn.py [--total_timesteps 50000] [--seed 0] [--out 07_policy_kwargs_compare.png]` |
-| `day4/05_dqn_param_effect.py` | DQN 핵심 파라미터 효과: buffer_size, train_freq, target_update_interval (기본 / 공격적 / 보수적). `python day4/05_dqn_param_effect.py [--total_timesteps 50000] [--seed 0] [--out 08_dqn_param_effect.png]` |
+| `day4/01_iris_visualization.html` | 신경망 시각화 (Iris, 슬라이더로 입력·가중치 조절) — 브라우저에서 HTML 열기 |
+| `day4/02_cartpole_compare.py` | CartPole 비교: 이산화 Q-Learning vs Vanilla DQN vs Stable DQN. 학습 곡선 비교. `day4/models/` 모델 캐시. `python day4/02_cartpole_compare.py [--total_timesteps 100000] [--seed 0] [--force_train]` |
+| `day4/03_dqn_lunarlander_colab.ipynb` | **Colab 전용** DQN으로 LunarLander-v3 학습 (Gradio 하이퍼파라미터, RecordVideo, GPU/CPU 지원) |
+| `day4/04_policy_kwargs_dqn.py` | DQN 뇌 구조 비교: MlpPolicy + `policy_kwargs` net_arch ([64,64] / 기본 / [256,256,128]). `python day4/04_policy_kwargs_dqn.py [--total_timesteps 50000] [--seed 0] [--out day4/renders/04_policy_kwargs_compare.png]` |
+| `day4/05_dqn_param_effect.py` | DQN 핵심 파라미터 효과: buffer_size, train_freq, target_update_interval (기본 / 공격적 / 보수적). `python day4/05_dqn_param_effect.py [--total_timesteps 50000] [--seed 0] [--out day4/renders/05_dqn_param_effect.png]` |
 | `day4/06_callback_reward_loss_gradio.ipynb` | **Colab 전용** CartPole DQN + Callback으로 보상·Loss 수집, Gradio 학습 곡선 및 Q-value·정책 히트맵 |
-| `day4/07_reinforce_gradio_mountaincar.ipynb` | **Colab 전용** MountainCarContinuous REINFORCE (가우시안 정책, 보상 shaping), Gradio UI |
+| `day4/07_reinforce_gradio_mountaincar.ipynb` | **Colab 전용** MountainCarContinuous-v0 REINFORCE (가우시안 정책, 보상 shaping), Gradio UI |
 | `day4/08_onpolicy_compare.py` | LunarLander-v3 온폴리시 비교: REINFORCE(PyTorch) vs A2C vs PPO. `day4/models/` 캐시. `python day4/08_onpolicy_compare.py [--total_timesteps 200000] [--seed 0] [--force_train]` |
 | `day4/device_utils.py` | SB3/PyTorch용 디바이스 선택 (CUDA → MPS → CPU). 02·04·05·08에서 사용 |
 
-※ 02·08은 `day4/models/`에 모델이 있으면 로드, 없으면 학습 후 저장합니다. 비교 그래프는 `day4/renders/` 등에 PNG로 저장됩니다.
+※ 02·08은 `day4/models/`에 모델이 있으면 로드, 없으면 학습 후 저장합니다. 비교 그래프는 `day4/renders/`에 PNG로 저장됩니다.
+
+---
+
+## 📅 5일차: 최종 프로젝트 — AI 엘리베이터
+
+### 5일차 파일 구성
+| 파일 | 설명 |
+|------|------|
+| `day5/01_elevator_streamlit_app.py` | BuildingElevator-v0 Streamlit 앱 (랜덤 에이전트). 리워드·배달 수·대기 인원 통계, 병렬 env 가속. `streamlit run day5/01_elevator_streamlit_app.py` |
+| `day5/02_elevator_gradio_colab.ipynb` | **Colab 전용** BuildingElevator Gradio (N층 M대 엘리베이터). 랜덤 에이전트, GPU/CPU 가속, 리더보드 제출 (10회 평균) |
+| `day5/building_elevator_env.py` | BuildingElevator-v0 Gymnasium 환경 (4층 1대 기본, num_floors/num_elevators 조절). training/evaluation 모드, 리더보드 제출 |
+
+※ 01·02는 `day4/device_utils.py`를 사용합니다 (CUDA → MPS → CPU). 리더보드 제출 관련 코드는 수정하지 마세요.
 
 ---
 
